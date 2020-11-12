@@ -72,6 +72,18 @@ Generate CRUD scaffolding for a new model:
     
 This will create the model, factory, nav item, and CRUD components.
 
+Generate CRUD for a new model with a shared trait for form fields & rules:
+
+    php artisan make:crudtrait ModelName
+    
+This will create the model, factory, nav item, CRUD components and trait.
+
+Generate a new Swift model:
+
+    php artisan make:swiftmodel ModelName
+    
+This will create the model and factory.
+
 
 
 ## Using Components
@@ -141,7 +153,7 @@ Methods: `active`
 
     S::button('Do Something')->primary()->click('doSomething'),
 
-Methods: `submit`, `primary`, `secondary`, `success`, `info`, `danger`, `warning`, `light`, `dark`, `outlinePrimary`, `outlineSecondary`, `outlineSuccess`, `outlineInfo`, `outlineDanger`, `outlineWarning`, `outlineLight`, `outlineDark`, `link`, `sm`, `lg`, `block`, `disabled`
+Methods: `submit`, `primary`, `secondary`, `success`, `info`, `danger`, `warning`, `light`, `dark`, `outlinePrimary`, `outlineSecondary`, `outlineSuccess`, `outlineInfo`, `outlineDanger`, `outlineWarning`, `outlineLight`, `outlineDark`, `link`, `active`, `sm`, `lg`, `block`, `disabled`
 
 ### Button Group
 
@@ -176,7 +188,7 @@ Methods: `header`, `image`, `body`, `footer`
 
     S::checkbox('agree')->label('Agree to TOS')->modelDefer(),
 
-Methods: `label`, `help`, `switch`, `inline`, `disabled`, `model`, `modelDebounce`, `modelDefer`, `modelLazy`
+Methods: `label`, `checkboxLabel`, `help`, `switch`, `inline`, `disabled`, `model`, `modelDebounce`, `modelDefer`, `modelLazy`
 
 ### Code
 
@@ -250,7 +262,7 @@ Methods: `inline`, `submit`, `submitPrevent`, `submitSelf`, `submitStop`
         S::input('first_name')->modelDefer(),
     ),
 
-Methods: none
+Methods: `label`
 
 ### Form Row
 
@@ -293,6 +305,12 @@ Methods: `solid`, `regular`, `light`, `duotone`, `brand`, `fw`, `xs`,  `sm`,  `l
 
 Methods: `elseif`, `else`
 
+### Iframe
+
+    S::iframe('http://maps.google.com/maps?q=pizza+pizza+oshawa&z=10&output=embed')->width('100%')->height(300),
+
+Methods: `width`, `height`
+
 ### Image
 
     S::image('https://i.imgur.com/zplGJnj.png')->alt('Time to kick it!'),
@@ -332,7 +350,7 @@ Methods: none
 
     S::link('Go To Reddit')->href('https://reddit.com'),
 
-Methods: `href`, `active`, `disabled`, `stretched`
+Methods: `href`, `target`, `active`, `disabled`, `stretched`
 
 ### List
 
@@ -491,7 +509,7 @@ Methods: `label`, `striped`, `animated`
 
     S::radio('gender')->options(['Male', 'Female'])->modelDefer(),
 
-Methods: `options`, `help`, `inline`, `disabled`, `model`, `modelDebounce`, `modelDefer`, `modelLazy`
+Methods: `options`, `label`, `help`, `inline`, `disabled`, `model`, `modelDebounce`, `modelDefer`, `modelLazy`
 
 ### Row (Grid)
 

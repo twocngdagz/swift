@@ -5,8 +5,10 @@ namespace Redbastie\Swift\Providers;
 use Illuminate\Support\ServiceProvider;
 use Redbastie\Swift\Commands\InstallSwiftCommand;
 use Redbastie\Swift\Commands\MakeCrudCommand;
+use Redbastie\Swift\Commands\MakeCrudTraitCommand;
 use Redbastie\Swift\Commands\MakePageCommand;
 use Redbastie\Swift\Commands\MakeSwiftCommand;
+use Redbastie\Swift\Commands\MakeSwiftModelCommand;
 use Redbastie\Swift\Commands\MigrateAutoCommand;
 
 class SwiftServiceProvider extends ServiceProvider
@@ -17,8 +19,10 @@ class SwiftServiceProvider extends ServiceProvider
             $this->commands([
                 InstallSwiftCommand::class,
                 MakeCrudCommand::class,
+                MakeCrudTraitCommand::class,
                 MakePageCommand::class,
                 MakeSwiftCommand::class,
+                MakeSwiftModelCommand::class,
                 MigrateAutoCommand::class,
             ]);
         }

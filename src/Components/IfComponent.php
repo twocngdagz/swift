@@ -2,6 +2,8 @@
 
 namespace Redbastie\Swift\Components;
 
+use Closure;
+
 class IfComponent
 {
     public $conditions = [];

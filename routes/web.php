@@ -9,13 +9,17 @@ Route::middleware('web')->group(function () {
 
     if ($filesystem->exists($dir)) {
         foreach ($filesystem->allFiles($dir) as $file) {
-            $className = 'App\\Http\\Livewire\\' . str_replace(['/', '.php'], ['\\', ''], $file->getRelativePathname());
-            $class = app($className);
+            $name = 'App\\Http\\Livewire\\' . str_replace(['/', '.php'], ['\\', ''], $file->getRelativePathname());
+            $reflection = new ReflectionClass($name);
 
-            if ($class->routeUri) {
-                $route = Route::get($class->routeUri, $className);
-                if ($class->routeName) $route->name($class->routeName);
-                if ($class->routeMiddleware) $route->middleware($class->routeMiddleware);
+            if ($reflection->hasProperty('routeUri')) {
+                $class = app($name);
+
+                if ($class->routeUri) {
+                    $route = Route::get($class->routeUri, $name);
+                    if ($class->routeName) $route->name($class->routeName);
+                    if ($class->routeMiddleware) $route->middleware($class->routeMiddleware);
+                }
             }
         }
     }
